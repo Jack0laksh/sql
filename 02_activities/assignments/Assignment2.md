@@ -42,11 +42,17 @@ At the minimum it should have employee, order, sales, customer, and book entitie
 Additionally, include a date table. 
 
 There are several tools online you can use, I'd recommend [Draw.io](https://www.drawio.com/) or [LucidChart](https://www.lucidchart.com/pages/).
+![ERD](https://github.com/user-attachments/assets/6a009621-faf6-4830-8b2c-5b5f01c485bd)
+
+
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+
+![ERD2](https://github.com/user-attachments/assets/5f365895-86c3-47a2-a8c1-09ec49bcbf6d)
+
 
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
@@ -54,7 +60,18 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+<u>Type 1 SCDs - Overwriting</u>
+
+In a Type 1 SCD the new data overwrites the existing data. Thus the existing data is lost as it is not stored anywhere else. This is the default type of dimension you create. You do not need to specify any additional information to create a Type 1 SCD.
+
+<u>Type 2 SCDs - Creating another dimension record</u>
+
+A Type 2 SCD retains the full history of values. When the value of a chosen attribute changes, the current record is closed. A new record is created with the changed data values and this new record becomes the current record. Each record contains the effective time and expiration time to identify the time period between which the record was active.
+
+Store is intending to implement Type 2 approach. There are ofcourse various privacy implications to this for example -
+
+1) Addresses are considered PII and Bookstore team should consider the prominent data protection and privacy laws and regulations based on the country/region they are going to store the customer information of.
+2) Storing addresses in a database also involves implementing appropriate security measures to protect address data against unauthorized access and breaches. Data breaches can result in significant financial, reputational, and legal damages for the organization and the data subjects. They can also expose the organization to regulatory fines, penalties, civil lawsuits, and claims. They need to consider the security measures that can help prevent and mitigate data breaches for example - data encryption , data backups, data access controls, data rentention policies etc.
 ```
 
 ***
