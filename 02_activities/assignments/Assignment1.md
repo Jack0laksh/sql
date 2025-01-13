@@ -104,6 +104,7 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 	- These are the tables that are connected
 	- <img src="./images/01_farmers_market_conceptual_model.png" width="600">
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
+![image](https://github.com/user-attachments/assets/567caf32-a476-4f64-ac96-d0e249b54ff6)
 
 ***
 
